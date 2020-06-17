@@ -1,0 +1,6 @@
+.today {
+    color: #3296c8;
+  }
+.today:after {
+    border-color: #3296c8;
+  }
