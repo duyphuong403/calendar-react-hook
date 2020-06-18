@@ -4,3 +4,83 @@
 .today:after {
     border-color: #3296c8;
   }
+
+.container-fluid {
+  padding: 0 !important;
+}
+
+.table-bordered > tbody > tr > td {
+  width: 10%;
+  height: 120px;
+}
+
+.table-bordered > tbody > tr > td > div > h5 {
+  padding: 10%;
+  border: solid white 1px;
+  border-radius: 30px;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.table-bordered > thead > tr > td {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.border {
+  border: 3px solid #007bff  !important
+}
+
+@media screen and (max-width: 1024px) {
+  h5 {
+    font-size: 12px ;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .table > thead > tr > td {
+    font-size: 14px
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h5 {
+    max-width: 40px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .table > thead > tr > td, .table > thead > tr > td > button, .day-in-month, .table > tbody > tr > td {
+    font-size: 10px
+  }
+}
+
+.not-started-yet {
+  background-color: gray;
+}
+
+.pending {
+ background-color: #b7b710;
+}
+
+.in-progress {
+  background-color: #d49f0cb9;
+}
+
+.completed {
+  background-color: #26af54;
+}
+
+.not-completed {
+  background-color: #ff3300;
+}
+
+.day-in-month {
+  text-align: right;
+}

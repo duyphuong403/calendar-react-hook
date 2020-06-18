@@ -1,0 +1,68 @@
+{
+	"2019": [
+		{
+			"date": "2019-06-25",
+			"title": "Job Interview with ABC company",
+			"description": "Frontend developer - React position interview",
+			"status": "completed"
+		},
+		{
+			"date": "2019-06-25",
+			"title": "Return books",
+			"description": "Return books to Saigon library.",
+			"status": "not completed"
+		},
+		{
+			"date": "2019-08-02",
+			"title": "Go to Nha Trang",
+			"description": "Enjoy sunshine in Nha Trang with family.",
+			"status": "completed"
+		},
+		{
+			"date": "2019-12-12",
+			"title": "Girlfriend's birthday",
+			"description": "Prepare the birthday party to my girl.",
+			"status": "completed"
+		}
+	],
+	"2020": [
+		{
+			"date": "2020-01-31",
+			"title": "Go home for the Tet",
+			"description": "Buy new year gifts for the family.",
+			"status": "completed"
+		},
+		{
+			"date": "2020-03-15",
+			"title": "Attend an online React training",
+			"description": "Join the online course on Udemy for React/Redux training",
+			"status": "not completed"
+		},
+		{
+			"date": "2020-06-10",
+			"title": "Work on the React assignment",
+			"description": "Complete job assignment from Ondaily.",
+			"status": "in progress"
+		},
+		{
+			"date": "2020-06-23",
+			"title": "Ondaily assignment deadline",
+			"description": "Submit Ondaily assignment. This is the final deadline",
+			"status": "not started yet"
+		}
+	],
+	"2021": [
+		{
+			"date": "2021-01-01",
+			"title": "Plan for new year goals",
+			"description": "Work on 2021 new year goals of careers and studies.",
+			"status": "not started yet"
+		},
+		{
+			"date": "2021-02-13",
+			"title": "Prepare for Valentine",
+			"description": "Buy gifts for my lover.",
+			"status": "pending"
+		}
+	]
+}
