@@ -5,7 +5,6 @@ export let initialState = {
 };
 
 export function reducer(state, action) {
-    // console.log(action.data.dateObject)
     switch (action.type) {
       case 'CHANGE_MONTH':
         return {

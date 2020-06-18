@@ -4,23 +4,14 @@ import { AppContext } from './App'
 import Data from '../todo_data.json'
 import SweetAlert from 'react-bootstrap-sweetalert';
 
-// const Event = props => {
-//     const [events, setEvents] = useState(props)
-//     // console.log(events)
-//     return (
-//         <h1>{events.title}</h1>
-//     )
-// }
-
 const Calender = () => {
-    // const [dateObject] = useState(moment);
     const { state } = useContext(AppContext);
 
     const daysInWeek = moment.weekdaysShort();
     const currentDay = state.dateObject.format("D");
     const firstDayOfMonth = moment(state.dateObject).startOf("month").format("d");
 
-    const currentMonth = moment().format("MM"); // use to highlight today
+    const currentMonth = moment().format("MM");
     const currentMonthFromReducer = state.dateObject.format("MM");
 
     const currentYear = moment().format("YYYY");
@@ -111,7 +102,6 @@ const Calender = () => {
                 )
             }
         }
-        // console.log(eventElement)
         daysInMonthCell.push(
             <td key={d + 40} className={className}>
                 <div className="day-in-month">
@@ -165,7 +155,6 @@ const Calender = () => {
                 <tbody key={40}>
                     {dayInMonthElements}
                 </tbody>
-                {/* <Event {...events}/> */}
             </table>
             {alert}
         </>
