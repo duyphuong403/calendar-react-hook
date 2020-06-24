@@ -1,52 +1,52 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react'
 import moment from 'moment'
-import { AppContext } from './App';
+import { AppContext } from './App'
 
 export const Header = () => {
-    const { state, dispatch } = useContext(AppContext);
+    const { state, dispatch } = useContext(AppContext)
 
     const allMonths = moment.months()
-    const [showMonthTable, setShowMonthTable] = useState(false);
-    const [showDateTable, setShowDateTable] = useState(false);
+    const [showMonthTable, setShowMonthTable] = useState(false)
+    const [showDateTable, setShowDateTable] = useState(false)
 
-    const currentMonth = state.dateObject.format("MMMM");
-    const currentYear = state.dateObject.format("YYYY");
+    const currentMonth = state.dateObject.format("MMMM")
+    const currentYear = state.dateObject.format("YYYY")
 
     const setMonth = (month) => {
-        let monthNo = allMonths.indexOf(month);
+        let monthNo = allMonths.indexOf(month)
         dispatch({ type: 'CHANGE_MONTH', data: { dateObject: state.dateObject, monthNo: monthNo } })
-        setShowDateTable(!showDateTable);
-        setShowMonthTable(!showMonthTable);
+        setShowDateTable(!showDateTable)
+        setShowMonthTable(!showMonthTable)
     }
 
     const monthList = () => {
-        let months = [];
+        let months = []
         allMonths.map((eachMonth) => {
-            let currentMonthStyle = eachMonth === moment().format("MMMM") ? "border border-primary" : null;
+            let currentMonthStyle = eachMonth === moment().format("MMMM") ? "border border-primary" : null
             return months.push(
-                <td key={eachMonth + 20} onClick={() => { setMonth(eachMonth); }} className={currentMonthStyle} style={{cursor: "pointer"}}>
+                <td key={eachMonth + 20} onClick={() => { setMonth(eachMonth) }} className={currentMonthStyle} style={{cursor: "pointer"}}>
                     {eachMonth}
                 </td>
-            );
+            )
         })
 
         // Create list of cells to contain month name
-        let rows = [];
-        let cells = [];
+        let rows = []
+        let cells = []
 
         months.forEach((row, i) => {
             if (i % 4 !== 0 || i === 0) {
-                cells.push(row);
+                cells.push(row)
             } else {
-                rows.push(cells);
-                cells = [];
-                cells.push(row);
+                rows.push(cells)
+                cells = []
+                cells.push(row)
             }
-        });
-        rows.push(cells);
+        })
+        rows.push(cells)
         let monthlist = rows.map((d, i) => {
-            return <tr key={i + 30}>{d}</tr>;
-        });
+            return <tr key={i + 30}>{d}</tr>
+        })
 
         return (
             <tbody>
@@ -55,7 +55,7 @@ export const Header = () => {
                 </tr>
                 {monthlist}
             </tbody>
-        );
+        )
     }
 
     return (

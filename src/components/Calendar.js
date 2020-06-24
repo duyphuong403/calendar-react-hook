@@ -1,21 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react'
 import moment from 'moment'
 import { AppContext } from './App'
 import Data from '../todo_data.json'
-import SweetAlert from 'react-bootstrap-sweetalert';
+import SweetAlert from 'react-bootstrap-sweetalert'
 
 const Calender = () => {
-    const { state } = useContext(AppContext);
+    const { state } = useContext(AppContext)
 
-    const daysInWeek = moment.weekdaysShort();
-    const currentDay = state.dateObject.format("D");
-    const firstDayOfMonth = moment(state.dateObject).startOf("month").format("d");
+    const daysInWeek = moment.weekdaysShort()
+    const currentDay = state.dateObject.format("D")
+    const firstDayOfMonth = moment(state.dateObject).startOf("month").format("d")
 
-    const currentMonth = moment().format("MM");
-    const currentMonthFromReducer = state.dateObject.format("MM");
+    const currentMonth = moment().format("MM")
+    const currentMonthFromReducer = state.dateObject.format("MM")
 
-    const currentYear = moment().format("YYYY");
-    const currentYearFromReducer = state.dateObject.format("YYYY");
+    const currentYear = moment().format("YYYY")
+    const currentYearFromReducer = state.dateObject.format("YYYY")
 
     // Import data from json file to events
     const events = []
@@ -30,9 +30,9 @@ const Calender = () => {
         }
     }
 
-    const [eventList] = useState(events);
+    const [eventList] = useState(events)
     // create blank cells
-    let blanks = [];
+    let blanks = []
     for (let i = 0; i < firstDayOfMonth; i++) {
         blanks.push(
             <td key={i}>{""}</td>
@@ -40,8 +40,8 @@ const Calender = () => {
     }
 
     // create date cells
-    const daysInMonth = state.dateObject.daysInMonth();
-    let daysInMonthCell = [];
+    const daysInMonth = state.dateObject.daysInMonth()
+    let daysInMonthCell = []
 
     const setTaskClassName = (status) => {
         switch (status) {
@@ -83,12 +83,12 @@ const Calender = () => {
 
     for (let d = 1; d <= daysInMonth; d++) {
         // highlight if is today
-        let className = d === parseInt(currentDay) && currentMonth === currentMonthFromReducer && currentYear === currentYearFromReducer ? "border border-primary" : undefined;
+        let className = d === parseInt(currentDay) && currentMonth === currentMonthFromReducer && currentYear === currentYearFromReducer ? "border border-primary" : undefined
 
         // re-format date
-        const currentDateFullFormat = `${currentYearFromReducer}-${currentMonthFromReducer}-${d}`;
+        const currentDateFullFormat = `${currentYearFromReducer}-${currentMonthFromReducer}-${d}`
 
-        const eventElement = [];
+        const eventElement = []
         for (let i = 0; i < eventList.length; i++) {
             if (currentDateFullFormat === eventList[i].date) {
                 eventElement.push(
@@ -115,30 +115,28 @@ const Calender = () => {
     }
 
     // show date and blank in table
-    var totalSlots = [...blanks, ...daysInMonthCell];
-    let rows = [];
-    let cells = [];
+    var totalSlots = [...blanks, ...daysInMonthCell]
+    let rows = []
+    let cells = []
 
     totalSlots.forEach((row, i) => {
         // if i != 7 will create new row
         if (i % 7 !== 0) {
-            cells.push(row);
+            cells.push(row)
         } else {
             // i = 7 => 
-            rows.push(cells);
-            cells = [];
-            cells.push(row);
+            rows.push(cells)
+            cells = []
+            cells.push(row)
         }
         if (i === totalSlots.length - 1) {
-            rows.push(cells);
+            rows.push(cells)
         }
-    });
+    })
     // map rows to tr element
     let dayInMonthElements = rows.map((d, i) => {
-        return <tr key={i + 100}>{d}</tr>;
-    });
-
-
+        return <tr key={i + 100}>{d}</tr>
+    })
 
     return (
         <>
@@ -158,7 +156,6 @@ const Calender = () => {
             </table>
             {alert}
         </>
-
     )
 }
 

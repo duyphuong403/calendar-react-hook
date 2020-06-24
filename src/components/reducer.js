@@ -1,8 +1,8 @@
 import moment from 'moment'
 
 export let initialState = {
-  dateObject: moment(),
-};
+  dateObject: moment()
+}
 
 export function reducer(state, action) {
     switch (action.type) {
@@ -23,6 +23,6 @@ export function reducer(state, action) {
               dateObject: moment(initialState.dateObject).set("year", moment().format("YYYY")).set("month", moment().format("MMMM"))
             }
       default:
-        throw new Error();
+        throw new Error()
     }
   }
